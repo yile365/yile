@@ -58,9 +58,9 @@ function removeAd(){
 }
 
 function setConsolePanel(){
-	if($("#consolePanel").length>0){
-		return;
-	}
+	//if($("#consolePanel").length>0){
+		//return;
+	//}
 	aclert($("#consolePanel").length);
 	$("body").after('<div id="consolePanel"></div>');
 	$("body").css("overflow-y","auto");
