@@ -23,32 +23,52 @@ function removeAd(){
     if(count>=100){
         return;
     }
-	printLog("::shadow div"+$('::shadow div').length);
-    if($('::shadow div').length>0){
-        $('::shadow div').remove();
-    }
-	printLog(".blank-frame"+$('.blank-frame').length);
-    if($(".blank-frame").length>0){
-        $(".blank-frame").remove();
-    }
-	printLog("#copyright.next"+$("#copyright").next());
-    if($("#copyright").next().length>0){
-        $("#copyright").next().remove();
-    }
-	printLog(".blank-frame"+$('.blank-frame').length);
-    if($("section.hint-fold-results-wrapper.hint-no-fold").length>0){
-        $("section.hint-fold-results-wrapper.hint-no-fold").remove();
-    }
-    if($(".ec_wise_ad").length>0){
-       $(".ec_wise_ad").remove();
-    }
-	printLog("copyright-next-length"+$("#copyright").next().length);
-    if($("#copyright").next().length>0){
-		$("#copyright").next().remove();
-    }
-    if($(".close").length>0){
-		$(".close").click();
-    }
+	try{
+		printLog("::shadow div:"+$('::shadow div').length);
+		if($('::shadow div').length>0){
+			$('::shadow div').remove();
+		}
+	}catch(e){
+		printLog("::shadow div:"+e);
+	}
+	try{
+		printLog(".blank-frame"+$('.blank-frame').length);
+		if($(".blank-frame").length>0){
+			$(".blank-frame").remove();
+		}
+	}catch(e){
+		printLog(".blank-frame:"+e);
+	}
+	try{
+		printLog("#copyright.next"+$("#copyright").next());
+		if($("#copyright").next().length>0){
+			$("#copyright").next().remove();
+		}
+	}catch(e){
+		printLog("copyright:"+e);
+	}
+	try{
+		printLog("section.hint-fold-results-wrapper.hint-no-fold"+$('.blank-frame').length);
+		if($("section.hint-fold-results-wrapper.hint-no-fold").length>0){
+			$("section.hint-fold-results-wrapper.hint-no-fold").remove();
+		}
+	}catch(e){
+		printLog("section.hint-fold-results-wrapper.hint-no-fold:"+e);
+	}
+	try{
+		if($(".ec_wise_ad").length>0){
+		   $(".ec_wise_ad").remove();
+		}
+	}catch(e){
+		printLog(".ec_wise_ad:"+e);
+	}
+	try{
+		if($(".close").length>0){
+			$(".close").click();
+		}
+	}catch(e){
+		printLog(".close:"+e);
+	}
 	printLog(".hint-fold-results-box--length"+$(".hint-fold-results-box").length);
     if($(".hint-fold-results-box").length>0){
 		$(".hint-fold-results-box").remove();
@@ -70,15 +90,8 @@ function setConsolePanel(){
 	let mobileBodyHeight=$(window).height() - 100 - 146;
 	let css=`
 		body{
-			overflow: hidden;
-		}
-		#wrapper{
-			overflow-y: auto;
-			height: ${pcBodyHeight}px;
-		}
-		#page{
-			overflow-y: auto;
-			height: ${mobileBodyHeight}px;
+			position: fixed;
+			padding-bottom: 100px;
 		}
 		#consolePanel{
 			width: 100%;
