@@ -93,28 +93,57 @@ function setConsolePanel(){
 			width: 100%;
 			height: 200px;
 			background: #fff;
-			overflow-y: auto;
 			border-top: 1px solid #ccc;
-			display: flex;
-			flex-wrap: wrap;
 			line-height: 20px;
 			position: fixed;
 			left: 0;
 			bottom: 0;
 			z-index: 1000000000000;
 		}
-		#consolePanel > div{
-			width: 100%;
+		#consolePanel > div.title{
+			background: #eee;
+			font-weight: bold;
+			font-size: 15px;
+			display: flex;
+			justify-content: space-between;
+			padding: 3px 10px;
 			border-bottom: 1px solid #ccc;
+			height: 20px;
+		}
+		#consolePanel > div.title > div:last-child{
+			display: flex;
+		}
+		#consolePanel > div.title > div:last-child > span{
+			font-size: 25px;
+		}
+		#consolePanel > div.content {
+			overflow-y: auto;
+			height: calc(100% - 27px);
+		}
+		#consolePanel > div.content > div{
+			border-bottom: 1px solid #ccc;
+			text-align: left;
+			padding: 2px 5px;
 		}
 	`;
 	$('<style>').html(css).appendTo($('head'));
-	$("body").append('<div id="consolePanel"></div>');
+	$("body").append(`
+		<div id="consolePanel">
+			<div class="title">
+				<div>控制台</div>
+				<div onclick="javascript:$('#consolePanel > div.content').empty();">
+					清空
+				</div>
+			</div>
+			<div class="content">
+			</div>
+		</div>
+	`);
 }
 
 function printLog(msg){
 	if(isDebug){
 		setConsolePanel();
-		$("#consolePanel").append('<div>'+msg+'</div>');
+		$("#consolePanel > div.content").append('<div>'+msg+'</div>');
 	}
 }
