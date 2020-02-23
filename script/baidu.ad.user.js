@@ -9,11 +9,11 @@
 // @match        *://baidu.com/*
 // @grant        none
 // ==/UserScript==
-var count=0;
+let isDebug=true;
+let count=0;
 
 $(function() {
     'use strict';
-	setConsolePanel();
     removeAd();
 })();
 
@@ -58,26 +58,44 @@ function removeAd(){
 }
 
 function setConsolePanel(){
-	//if($("#consolePanel").length>0){
-		//return;
-	//}
-	aclert($("#consolePanel").length);
-	$("body").after('<div id="consolePanel"></div>');
-	$("body").css("overflow-y","auto");
-	$("#consolePanel").css("height",100);
-	$("#consolePanel").css("background","#fff");
-	$("#consolePanel").css("overflow-y","auto");
-	$("#consolePanel").css("border-top","1px solid #ccc");
-	$("#consolePanel").css("display","flex");
-	$("#consolePanel").css("flex-wrap","wrap");
-	$(window).unbind("resize");
-	$(window).bind("resize",function(){
-		$("body").css("height",$(this).height() - 100);
-	});
-	$(window).trigger("resize");
-	aclert(1);
+	if($("#consolePanel").length>0){
+		return;
+	}
+	let pcBodyHeight=$(window).height() - 100;
+	let mobileBodyHeight=$(window).height() - 100 - 146;
+	let css=`
+		body{
+			overflow: hidden;
+		}
+		#wrapper{
+			overflow-y: auto;
+			height: ${pcBodyHeight}px;
+		}
+		#page{
+			overflow-y: auto;
+			height: ${mobileBodyHeight}px;
+		}
+		#consolePanel{
+			width: 100%;
+			height: 100px;
+			background: #fff;
+			overflow-y: auto;
+			border-top: 1px solid #ccc;
+			display: flex;
+			flex-wrap: wrap;
+			line-height: 20px;
+		}
+		#consolePanel > div{
+			width: 100%;
+		}
+	`;
+	$('<style>').html(css).appendTo($('head'));
+	$("body").append('<div id="consolePanel"></div>');
 }
 
 function printLog(msg){
-	$("#consolePanel").append('<div style="width:100%;">'+msg+'</div>');
+	if(isDebug){
+		setConsolePanel();
+		$("#consolePanel").append('<div>'+msg+'</div>');
+	}
 }
