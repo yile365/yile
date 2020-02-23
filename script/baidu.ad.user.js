@@ -61,6 +61,7 @@ function setConsolePanel(){
 	if($("#consolePanel").length>0){
 		return;
 	}
+	aclert($("#consolePanel").length);
 	$("body").after('<div id="consolePanel"></div>');
 	$("body").css("overflow-y","auto");
 	$("#consolePanel").css("height",100);
@@ -74,6 +75,7 @@ function setConsolePanel(){
 		$("body").css("height",$(this).height() - 100);
 	});
 	$(window).trigger("resize");
+	aclert(1);
 }
 
 function printLog(msg){
