@@ -19,18 +19,23 @@ $(function() {
 
 function removeAd(){
     count++;
+	printLog("count"+count);
     if(count>=100){
         return;
     }
+	printLog("::shadow div"+$('::shadow div').length);
     if($('::shadow div').length>0){
         $('::shadow div').remove();
     }
+	printLog(".blank-frame"+$('.blank-frame').length);
     if($(".blank-frame").length>0){
         $(".blank-frame").remove();
     }
+	printLog("#copyright.next"+$("#copyright").next());
     if($("#copyright").next().length>0){
         $("#copyright").next().remove();
     }
+	printLog(".blank-frame"+$('.blank-frame').length);
     if($("section.hint-fold-results-wrapper.hint-no-fold").length>0){
         $("section.hint-fold-results-wrapper.hint-no-fold").remove();
     }
