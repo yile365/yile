@@ -87,11 +87,11 @@ function setConsolePanel(){
 	}
 	let css=`
 		body{
-			padding-bottom: 100px;
+			padding-bottom: 200px;
 		}
 		#consolePanel{
 			width: 100%;
-			height: 100px;
+			height: 200px;
 			background: #fff;
 			overflow-y: auto;
 			border-top: 1px solid #ccc;
