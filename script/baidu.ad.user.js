@@ -11,7 +11,7 @@
 // ==/UserScript==
 var count=0;
 
-(function() {
+$(function() {
     'use strict';
 	setConsolePanel();
     removeAd();
