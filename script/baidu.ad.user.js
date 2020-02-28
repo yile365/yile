@@ -80,6 +80,16 @@ function removeAd(){
 			$(".mainContent").attr("style","");
 		}
 	});
+	tryCatch(function(){
+		if($(".outmargin").length>0){
+			$(".outmargin").remove()
+		}
+	});
+	tryCatch(function(){
+		if($(".newVersion").length>0){
+			$(".newVersion").remove()
+		}
+	});
     setTimeout(removeAd,100);
 }
 
