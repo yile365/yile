@@ -69,6 +69,16 @@ function removeAd(){
 			$(".ec_wise_ad").remove();
 		}
 	});
+	tryCatch(function(){
+		if($(".packupButton").length>0){
+			$(".packupButton").remove()
+		}
+	});
+	tryCatch(function(){
+		if($(".mainContent").attr("style")!=""){
+			$(".mainContent").attr("style","");
+		}
+	});
     setTimeout(removeAd,100);
 }
 
