@@ -7,6 +7,7 @@
 // @match        *://www.baidu.com/*
 // @match        *://m.baidu.com/*
 // @match        *://baidu.com/*
+// @match        *://*.baidu.com/*
 // @grant        none
 // ==/UserScript==
 let isDebug=true;
