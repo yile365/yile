@@ -6401,7 +6401,7 @@ var MainComponent = React.createClass({
 		//var saveData=JSON.parse(kubirData);
 		self.setState({saveData:kubirData});
 		self.loadData(kubirData);
-        console.debug("读取成功！");
+        alert("读取成功！");
     },
     upload:function(doNotShow){
         var saveData = clone(this.state);
@@ -6447,8 +6447,8 @@ var MainComponent = React.createClass({
         }});
 		*/
 		window.localStorage.kubirData=JSON.stringify(saveData);
-		console.debug("保存成功！");
-    }, 
+		if(!doNotShow)alert("保存成功！");
+    },
 });
 function render(){
     ReactDOM.render(
