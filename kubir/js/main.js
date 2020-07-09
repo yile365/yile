@@ -6450,7 +6450,7 @@ var MainComponent = React.createClass({
 		console.debug(saveData);
 		console.debug(window.localStorage.kubirData);
 		alert("保存成功！");
-    },
+    }, 
 });
 function render(){
     ReactDOM.render(
