@@ -1,0 +1,239 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>游戏指南</title>
+    <link rel='stylesheet' type='text/css' href='./css/howto.css'>
+    <link rel='stylesheet' type='text/css' href='./css/style.css'>
+    <link rel='stylesheet' type='text/css' href='./css/xl_style.css'>
+    <link rel="icon" type="image/png" href="./favicon.ico">
+</head>
+
+<body style="padding: 10px 20%">
+    <h1 style="text-align: center">
+        游戏指南
+    </h1>
+    <hr>
+    <div style="text-align: center">
+        《苦逼人生》文字游戏，包含剧情任务、建造、生产、种植、采集、战斗、副本、职业、贸易、天气等内容丰富，欢迎大家打开脑洞一起策划，打造一个另类好玩的沙盒生存游戏。
+    </div>
+    <hr>
+    <button onclick='changestate(1)' id='div1btn' class="storebtn">地图</button>
+    <div style="text-align: left" id='div1' class='hidden'>
+        <b>开启第一个新地图:</b>
+        <br>
+        前往-静谧森林-采集浆果*8-与流浪汉对话 =开启小镇地图
+        <br><br>
+        <b>开启更多新地图::</b> 
+        <br>
+        前往-溪流-与长者对话-完成任务 =开启更多新地图
+         <br><br>
+        注意，更多的隐藏地图与NPC对话完成任务开启。
+    </div>
+    <hr id='div1hr'>
+    <button onclick='changestate(2)' id='div2btn' class="storebtn">建造</button>
+    <div style="text-align: left" id='div2' class='hidden'>
+        <b>材料:</b> 游戏中建造材料大多来自采集
+        <br>
+        <b>静谧森林:</b> 主要出产：木材、树皮、浆果、草药。
+        <br>
+        <b>溪流:</b> 主要出产：木材、树皮、水、花、种子、毒根。
+        <br>
+        <b>银溪镇:</b> 主要出产：小麦、零件。
+        <br>
+        <b>贼窝:</b> 主要出产：金子、蛛丝马迹。
+        <br>
+        <b>幽暗的矿洞:</b> 主要出产：金子、铁块、硝石、宝石。
+        <br>
+        <b>冰冻荒原:</b> 主要出产：冰露、胡萝卜、干草。
+        <br>
+        <b>蜘蛛巢穴:</b> 主要出产：蛛卵。
+        <br>
+        <b>黑森林:</b> 主要出产：木材、树皮、荊棘、火草。
+        <br>
+        <b>遥远的湿地:</b> 主要出产：肥料。
+        <br>
+        <b>地精村庄:</b> 主要出产：零件。
+        <br>
+        <b>墓穴:</b> 主要出产：骨、花、金子。
+        <br>
+        <b>废墟聚集处:</b> 主要出产：零件、水。
+        <br>
+        <b>藏宝湾:</b> 主要出产：鱼、水母。
+        <br><br>
+        注意，以上的材料是可以在家中二次合成的，更多玩法等待你发现。
+    </div>
+    <hr id='div2hr'>
+    <button onclick='changestate(3)' id='div3btn' class="storebtn">地牢</button>
+    <div style="text-align: left" id='div3' class='hidden'>
+        <b>1-10层:</b> 
+        木偶（木头，树皮，灵魂），尘妖（光尘，灵魂），匍匐怪（生肉，水，尖牙），骷髅（骨，灵魂）
+        <br><br>
+        <b>11-20:</b> 蝙蝠（翅膀，尖牙，生肉),邪恶盆栽（滕曼，花，灵魂），骷髅射手（箭，骨，灵魂），女巫学徒（水晶）
+        <br><br>
+        <b>21-30:</b>
+        机械士兵（零件，铁块，灵魂），火女巫（宝石，水晶，灵魂，熔核），妖蛇（毒液，尖牙，生肉），冰女巫（宝石，水晶，灵魂，霜晶），幻之狮鹫（毛皮，生肉，暗金）
+        <br><br>
+        <b>31-40:</b>
+        机械蝙蝠（零件，铁块，灵魂），恶魔树根（木头，树皮，灵魂），魔界盆栽（尖牙，花，灵魂，牛角），泉之精灵（灵魂，水），烈焰妖蛇（毒液，尖牙，生肉，熔核）
+        <br><br>
+        <b>41-50:</b>
+        蛤蟆术士（水，光尘），深渊巨蟒（毒液，尖牙，生肉），魅惑女王（宝石，水晶，灵魂，流光兜帽），暗影蝙蝠（翅膀，暗尘，灵魂），木偶剑士（木头，树皮，灵魂）
+        <br><br>
+        <b>51-60:</b>
+        骷髅法师、骷髅剑士（水晶，骨，灵魂），深渊领主（暗尘，水晶，暗色火枪），潮汐领主（水晶，水，霜晶，霜爆法杖），熔岩领主（水晶，熔核，火刃），天空领主（光尘，宝石，水晶，圣弓）
+        <br><br>
+        <b>61-70:</b>
+        骷髅女王（水晶，骨，灵魂，骷髅法杖），白雾（宝石15，祝福吊坠-精神回复），黑雾（暗金15，恶魔武器）,炼狱龙（水晶，龙骨，灵魂，龙鳞，灵巧拳套）
+        <br><br>
+        <b>71-80:</b>
+        炼狱龙（水晶，龙骨，灵魂，熔核），寒霜龙（水晶龙骨，灵魂，霜晶）
+        <br><br>
+
+        注意：80层以后，掉落极品装备，更多玩法等待你发现。
+    </div>
+    <hr id='div3hr'>
+    <button onclick='changestate(4)' id='div4btn' class="storebtn">势力</button>
+    <div style="text-align: left" id='div4' class='hidden'>
+        <b>法师公会:</b> 加入法师公会- 习得 《吸收》技能
+        <br>
+        技能效果：当你获得胜利时，将恢复20%的精神。
+        <br> <br>
+        <b>食人氏族:</b> 加入食人氏族- 习得 《嗜血》技能
+        <br>
+        技能效果：当你获得胜利时，将恢复20%的生命。
+    </div>
+    <hr id='div4hr'>
+    <button onclick='changestate(5)' id='div5btn' class="storebtn">装备</button>
+    <div style="text-align: left" id='div5' class='hidden'>
+        武器：战斗时在下拉菜单选择使用；魔法攻击消耗精神，物理攻击消耗体力。 <br><br>
+        防具：获得新防具时（包括从仓库存取），会自动脱下身上的装备，要从新在背包点装备。 <br><br>
+        耐久：耐久度为0装备消失。耐久度是全局的，所以并不是说造了一把半耐久的工具。<br><br> 
+        注意，装备除了自己打造还可以去地宫打怪爆。 
+    </div>
+    <hr id='div5hr'>
+    <button onclick='changestate(6)' id='div6btn' class="storebtn">菜单</button>
+    <div style="text-align: left" id='div6' class='hidden'>
+      <br>
+        存/读档：随便输入账号密码；存档必须在家里进行，读档不限。<br>
+        自动存档：勾选出门时保存，在出门时会自动存档。 <br>
+        声音开关：打开/关闭声音<br>
+        自动整理背包：打开/关闭背包整理<br>
+    </div>
+    <hr id='div6hr'>
+    <button onclick='changestate(7)' id='div7btn' class="storebtn">丢弃物品</button>
+    <div style="text-align: left" id='div7' class='hidden'>
+        <br>
+       丢弃物品：战斗结束收获物品时点你不要的物品；非战斗时去市场换点别的物资。 <br><br>
+    </div>
+    <hr id='div7hr'>
+    <button onclick='changestate(8)' id='div8btn' class="storebtn">技能</button>
+    <div style="text-align: left" id='div8' class='hidden'>
+        <br>
+        当你学会技能后别忘记在 菜单-技能拦-点使用让技能生效。
+        <br>
+    </div>
+    <hr id='div8hr'>
+    <button onclick='changestate(9)' id='div9btn' class="storebtn">季节</button>
+    <div style="text-align: left" id='div9' class='hidden'>
+        <b>夏天降温:</b>
+        <br>
+          冰露（冰冻荒原、农田）：水分4，体温-7<br>
+         厨房：<br>
+          果汁=浆果+水：水分12，体温-5
+          冰水=冰露+水：水分10，体温-15
+          冰镇酒=冰露+酒类：精神32，水分7，满腹3，体温-10<br>
+         炼药室<br>
+          降温药剂=冰露x2：体温-35<br>
+         炼器室<br>
+          冰霜斗篷=8丝线+8光尘+1霜晶：环境温度下降（10），减缓（50%）体温上升速度<br>
+         地牢22层 冰女巫<br>
+          冰霜头巾：环境温度下降（10），35%几率冻结攻击者
+
+        <br><br>
+        <b>冬天保暖:</b>
+        <br>
+          火草（黑森林、农田）：满腹4，体温7<br>
+
+         厨房：<br>
+          火水=火草+水：水分10，体温15<br>
+          热汤=木头+水：水分10，体温10<br>
+          极烈朗姆=酒精+水：精神40，水分，体温6<br>
+          温酒=酒类+木头：精神35，水分5，体温13<br>
+          热咖啡=咖啡+木头：水分10，体力12，精神4，体温10<br>
+           咖啡=种子+水<br>
+          热花茶=花茶+木头：水分10，体力10，精神6，体温10<br>
+           花茶=花+水<br><br>
+
+         小作坊：<br>
+          雪地靴=4毛皮+4丝线+2草绳结：减缓（30%）体温下降速度<br>
+           草绳结=干草（冰冻荒原）x5<br>
+          棉袄=8毛皮+8丝线：减缓（50%）体温下降速度<br>
+          棉手套=6毛皮+2丝线：减缓（30%）体温下降速度<br>
+    </div>
+    <hr id='div9hr'>
+    <button onclick='changestate(10)' id='div10btn' class="storebtn">商贩</button>
+    <div style="text-align: left" id='div10' class='hidden'>
+
+        开启小镇地图后会有商人来往，在研究室进行相关升级可以加快商人来往。<br><br>
+         <b>商人分为:</b>
+        <br>
+         种子商贩: 带来100个种子;<br>
+         矿工: 随机带来除金子外的矿物;<br>
+         火药商: 带来50个火药;<br>
+         军火商: 带来100个子弹;<br>
+         冬季救援队: 只在冬天出现，随机带来木头、热汤等过冬物品;<br>
+         农民: 随机带来农作物; <br>
+         治疗师: 带来10个膏药 ;<br>
+         猎人: 随机带来生肉毛皮翅膀等;<br>
+         卖水者: 带来40个水;<br>
+         伐木工: 带来40个木头;<br>
+         工匠: 带来40个零件<br><br>
+
+      以物换物，可以用任何东西和商人换，换掉了不会再返还。有些特殊道具不可再生。<br>
+      
+    </div>
+    <hr id='div10hr'>
+    <button onclick='changestate(11)' id='div11btn' class="storebtn">转生系统</button>
+    <div style="text-align: left" id='div11' class='hidden'>
+
+        <b>转生费用:</b> 初始转生费用+该天赋等级*2
+        <br>
+        <b>拾荒者:</b> 突破野外资源 +100% 大幅减弱前期生存难度。
+        <br>
+        <b>幸运儿:</b> 增加杀怪物品掉率 +50%
+        <br>
+        <b>耐久强化:</b> 精神和体力 +100%
+        <br>
+        <b>体能强化:</b> 生命、满腹、水分 +100%
+        <br>
+        <b>商业大亨:</b> 商人贩卖物资量 +100%
+        <br>
+        <b>经营手腕:</b> 建筑产出速度加快 +100%
+        <br>
+        <b>战斗专家:</b> 每一级使得伤害额外 +100%
+        <br>       
+    </div>
+    <hr id='div11hr'>
+    <button onclick='changestate(12)' id='div12btn' class="storebtn">基础属性</button>
+    <div style="text-align: left" id='div12' class='hidden'>
+      <b>基础属性:</b> 
+        <br>
+        <b>体温:</b> 与季节挂勾，极冻或极热时损失其他属性。
+        <br>
+        <b>生命:</b> HP值，小于0角色死亡。
+        <br>
+        <b>满腹:</b> 温饱值，小于0角色死亡。
+        <br>
+        <b>水分:</b> 人体水份，小于0角色死亡。
+        <br>
+        <b>精神:</b> 法力值，与命中挂勾。小于0角色命中为0.
+        <br>
+        <b>体力:</b> 体力，用于采集，可为0.
+        <br> 
+    </div>
+    <hr id='div12hr'>
+</body>
+<script src='./js/howto.js'></script>
+
+</html>
