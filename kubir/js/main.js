@@ -794,6 +794,19 @@ var NormalMenuComponent = React.createClass({
                         </div>
                     </div>
                     <div className = 'panel-primary'>
+						<div>
+							<label className = "checkbox" htmlFor="autoSave">
+								<input checked = {this.context.settings.autoSave} onChange = {this.handleAuto} id="autoSave" type="checkbox" />
+								<span>出门时保存</span>
+							</label>
+						</div>
+						<div>
+							{this.context.currentScene != 'home'?<p style = {{color:'#ddd'}}>在家才能保存哦。。。</p>:null}
+							{getLength(this.context.mstState) != 0?<p style = {{color:'#ddd'}}>战斗中不能保存哦。。。</p>:null}
+							{this.context.robberSaveData.robber?<p style = {{color:'#ddd'}}>你正处于危险之中。。。</p>:null}
+							<BtnComponent disabled = {this.context.currentScene != 'home' || (getLength(this.context.mstState) != 0)||(this.context.robberSaveData.robber)} handleClick = {this.willUpload}>保存</BtnComponent>
+							<BtnComponent handleClick = {this.download}>读取</BtnComponent>
+						</div>
                         <BtnComponent handleClick = {this.context.setVolume}>声音：{this.context.AudioEngine.on?'开':'关'}</BtnComponent>
                         <BtnComponent handleClick = {this.setSort}>自动整理背包：{this.context.settings.sort?'开':'关'}</BtnComponent>
                         <a target="blank" href = "./howto.html">游戏指南</a>
@@ -6351,6 +6364,92 @@ var MainComponent = React.createClass({
             //对存档的预处理
             this.loadState(data);
         }.bind(this),100)
+    },
+	download:function(){
+        var saveData = (this.state);
+        var save_account = saveData.settings.save_account;
+        var save_pass = saveData.settings.save_pass;
+        var jsonStr = 'action=load&account=' + save_account + '&pass=' + save_pass + '&data=nope';
+        var self = this;
+		/*
+        var htmlobj = $.ajax({
+            contentType:"application/x-www-form-urlencoded",
+            type:'POST',
+            url:SAVE_URL,
+            async:true,
+            data:jsonStr,
+            success:function(){
+                if(htmlobj.responseText=='no account'){
+                    alert("没有这个账号...");
+                    return;
+                }
+                if(htmlobj.responseText=='incorrect pass'){
+                    alert("密码错误...");
+                    return;
+                }
+                if(htmlobj.responseText=='invalid'){
+                    alert("账号、密码必须是3-12位的数字以及字母的组合...");
+                    return;
+                }
+                    lll(htmlobj.responseText);
+                    alert("读取成功！");
+                    self.setState({saveData:htmlobj.responseText});
+                    self.loadData(htmlobj.responseText);
+        }});
+		*/
+		var kubirData=window.localStorage.kubirData;
+		//var saveData=JSON.parse(kubirData);
+		self.setState({saveData:kubirData});
+		self.loadData(kubirData);
+        alert("读取成功！");
+    },
+    upload:function(doNotShow){
+        var saveData = clone(this.state);
+        var save_account = saveData.settings.save_account;
+        var save_pass = saveData.settings.save_pass;
+        var day = saveData.time.day;
+        var g = saveData.generation;
+		/*
+        if(save_account == null||save_account == ''){
+            alert('不输入账号怎么保存啊。。。');
+            return;
+        }
+        if(save_pass == null||save_pass == ''){
+            alert('不输入密码怎么保存啊。。。');
+            return;
+        }
+		*/
+        delete saveData.settings;
+        delete saveData.saveData;
+        delete saveData.wind;
+        delete saveData.detailedItem;
+        delete saveData.detailedList;
+        delete saveData.detailedType;
+		/*
+        var jsonStr = 'action=save&account=' + save_account + '&pass=' + save_pass + '&data=' + encodeURI(JSON.stringify(saveData)) + '&day=' + day + '&g=' + g;
+        var htmlobj = $.ajax({
+            contentType:"application/x-www-form-urlencoded",
+            type:'POST',
+            url:SAVE_URL,
+            async:true,
+            data:jsonStr,
+            success:function(){
+                if(htmlobj.responseText=='incorrect pass'){
+                    alert("密码错误...");
+                    return;
+                }
+                if(htmlobj.responseText=='invalid'){
+                    alert("账号、密码必须是3-12位的数字以及字母的组合...");
+                    return;
+                }
+                if(!doNotShow)alert("保存成功！");
+                    // self.setState({saveData:decodeURI(encodeURI(JSON.stringify(saveData)))});
+        }});
+		*/
+		window.localStorage.kubirData=JSON.stringify(saveData);
+		console.debug(saveData);
+		console.debug(window.localStorage.kubirData);
+		alert("保存成功！");
     },
 });
 function render(){
