@@ -1,22 +1,22 @@
 [
 	{
-		"name": "八戒资源",
+		"title": "八戒资源",
 		"url": "http://cj.bajiecaiji.com/inc/seacmsapi.php"
 	},
 	{
-		"name": "8090资源",
+		"title": "8090资源",
 		"url": "http://zy.yilans.net:8090/api.php/provide/vod/at/xml/"
 	},
 	{
-		"name": "沃酷资源",
+		"title": "沃酷资源",
 		"url": "http://api.wokuzy.com/api/xml/wokull"
 	},
 	{
-		"name": "123酷",
+		"title": "123酷",
 		"url": "http://cj.123ku2.com:12315/inc/seacms.php"
 	},
 	{
-		"name": "OK资源",
+		"title": "OK资源",
 		"url": "https://cj.okzy.tv/inc/ldg_seas_subname.php"
 	}
 ]
